@@ -1,0 +1,42 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+        - main
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        - name: Cache metamath-blueprint-rs
+          id: cache-metamath-blueprint-rs
+          uses: actions/cache@v3
+          env:
+            cache-name: cache-blueprint-rs
+          with:
+            path: .metamath-blueprint-rs/target/release/metamath-blueprint-rs
+            key: ${{ runner.os }}-build-${{ env.cache-name }}
+        - name: Install rust
+          if: ${{ !steps.cache-metamath-blueprint-rs.outputs.cache-hit }}
+          uses: hecrj/setup-rust-action@v1
+          with:
+            rust-version: stable
+        - name: Install metamath-blueprint-rs
+          if: ${{ !steps.cache-metamath-blueprint-rs.outputs.cache-hit }}
+          run: |
+            rm -rf .metamath-blueprint-rs &&
+            git clone --depth 1 https://github.com/tirix/metamath-blueprint-rs.git .metamath-blueprint-rs &&
+            cd .metamath-blueprint-rs &&
+            cargo build --release
+        - name: Build
+          run: |
+            cd .metamath-blueprint-rs &&
+            cargo run build ..
+        - name: Deploy
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            folder: build
