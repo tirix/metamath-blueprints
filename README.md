@@ -18,7 +18,7 @@ Blueprints is a way to help communication:
 
 ## How to create and use blueprints
 
-Simply edit the files in this repository. They will be compiled and displayed in [https://tirix.github.io/metamath-blueprints](https://tirix.github.io/metamath-blueprints). You can contribute via commits or PRs.
+Simply edit the files in [this repository](https://github.com/tirix/metamath-blueprints). They will be compiled and displayed in [https://tirix.github.io/metamath-blueprints](https://tirix.github.io/metamath-blueprints). You can contribute via commits or PRs.
 
 One directory represents a project, and each file in that directory represents a definition or a theorem. Files are in the markdown format, with a TOML front-matter,  which might contain following optional fields as in:
 ```
