@@ -34,8 +34,7 @@ jobs:
             cargo build --release
         - name: Build
           run: |
-            cd .metamath-blueprints-rs &&
-            cargo run build ..
+            .metamath-blueprints-rs/target/release/metamath-blueprints-rs build .
         - name: Deploy
           uses: JamesIves/github-pages-deploy-action@v4
           with:
