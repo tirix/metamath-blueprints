@@ -1,0 +1,261 @@
+@font-face {
+    font-family: XITSMath-Regular;
+    src: url("../static/xits-math.woff");
+}
+  
+body {
+    color: #001;
+    font-family: Bitter,'Times New Roman', Times, serif;
+    font-weight: 200;
+    line-height: 30px;
+    margin: 0px 100px;
+}
+
+.container {
+    display: flex
+}
+
+.contents {
+    width: 100%;
+    padding-bottom: 25px
+}
+
+.sidebar {
+    flex: 0 0 300px;
+    margin-right: 2rem;
+}
+
+.sidebar ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.sidebar > ul  ul  li {
+    border-left: 1px solid white;
+    padding-left: 0.75rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    font-weight: bold;
+}
+
+.sidebar .t3 {
+    font-style: italic;
+}
+  
+@media only screen and (max-width: 1000px) {
+    body {
+        flex-direction: column;
+    }
+
+    body .sidebar {
+        border-top: 1px solid white;
+        order: 1;
+        margin-right: 0;
+        margin-top: 1rem;
+    }
+}
+
+h1 {
+    margin: 50px 0;
+    font-weight: 700;
+    background-image: url(../static/mmlogo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 80px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+h2,h3,strong {
+    font-weight: 500;
+}
+
+h2 {
+    position: sticky;
+    top: 0px;
+    background: white;
+}
+
+hr {
+    border-style: solid;
+    margin: 30px 0;
+}
+
+.header label {
+    font-weight: bold;
+    width: 20%;
+    display: inline-flex;
+}
+
+.header .info {
+    display: inline-flex;
+}
+
+iframe {
+    border: none;
+}
+
+.discouraged {
+    margin-left: 20px;
+    font-size: smaller;
+    color: #c88;
+}
+
+.contrib {
+    margin-left: 20px;
+    font-size: smaller;
+    color: #aaa;
+}
+
+.contrib a {
+    text-decoration: none;
+    color: #aaa;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.col-step {
+    width: 5%;
+}
+
+.col-hyp {
+    width: 11%;
+}
+
+.col-ref {
+    width: 9%;
+}
+
+.col-expr {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.col-step, .col-hyp {
+    text-align: center;
+}
+
+.label, .step {
+    font-family: Inconsolata, 'Courier New', Courier, monospace;
+    border-radius: 5px;
+    border: 1px grey;
+    padding: 3px 6px;
+    text-decoration: none;
+}
+
+.label {
+    background-color: #DEF;
+}
+
+.step, .hyp.label {
+    background-color: #EEE;
+}
+
+a.label:hover {
+    color: black;
+    background-color: #BDF;
+}
+
+a.step:hover {
+    color: black;
+    background-color: #DDD;
+}
+
+a {
+    color: #001;
+}
+
+a:hover {
+    color: #4494FF;
+}
+
+pre {
+    font-family: Inconsolata, 'Courier New', Courier, monospace;
+    margin: 0;
+}
+
+qed {
+    position: relative;
+    display: flex;
+    float: right;
+    top: -30px;
+    font-size: 24px;
+}
+
+qed::before {
+    content: '\25A1';
+}
+
+nav {
+    color: #aab;
+    margin-top: -50px;
+    float: right;
+    font-size: small;
+    line-height: revert;
+}
+
+nav.typesettings {
+    margin-top: -30px;
+}
+
+nav a {
+    color: #aab;
+}
+
+ol.toc a, nav a {
+    text-decoration: none;
+}
+
+nav div {
+    float: right;
+}
+
+ol {
+    counter-reset: item;
+}
+
+ol > li {
+    counter-increment: item;
+}
+
+ol > li::marker {
+    content: var(--chapter-number, "") counters(item, ".") ".\A0";
+}
+
+ol ol {
+    list-style: none;
+}
+
+ol ol > li::marker {
+    content: var(--chapter-number, "") counters(item, ".") ".\A0";
+}
+
+ol.breadcrumb, nav.typesettings ul {
+    margin: 0;
+}
+
+ol.breadcrumb li, nav.typesettings li {
+    display: inline;
+}
+
+ol.breadcrumb li:not(:last-child)::after, nav.typesettings ul li:not(:last-child)::after {
+    content: "|";
+    margin: 0 10px;
+}
+
+.uni { font-family: Bitter,'Times New Roman', Times, serif, XITSMath-Regular }
+mjx-container { margin: .3em 0em !important }
+mjx-container { width: inherit !important; text-align: left !important; }
+mjx-container a { color: #001 !important; cursor: pointer; }
+mjx-container a:hover { color: #4494FF !important; }
+
+

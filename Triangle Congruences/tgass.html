@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>tgass</title>
+		<link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="../static/metamath.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500&family=Bitter:wght@200;500;700&display=swap">
+		<script>
+			MathJax = {
+				options: {
+					renderActions: {
+						find: [10, function (doc) {
+							for (const node of document.querySelectorAll('.math.math-inline')) {
+								console.log(node);
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], false);
+								console.log(math);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+							for (const node of document.querySelectorAll('.math.math-display')) {
+								console.log(node);
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], true);
+								console.log(math);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+						}, '']
+					}
+				}
+			}
+		</script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>	
+	
+	</head>
+	<body>
+		<h1><logo/>Metamath Blueprint : Triangle Congruences</h1>
+		<hr />
+		<h2>Theorem <a href="#" class="label Theorem">tgass</a></h2>
+		<div class="container">
+			<aside class="sidebar">
+			    <a class="docs-link t1 active" href="..">Metamath Blueprints</a>
+			    <ul class="toc">
+            <ul>
+                    <li>
+			                        <a class="docs-link t2 active" href="../Triangle Congruences">Triangle Congruences</a>
+                            <ul>
+                                    <li><a class="docs-link t2" href="../Triangle Congruences/tgexta.html">tgexta</a></li>
+                                    <li><a class="docs-link t2" href="../Triangle Congruences/tgtrcgras.html">tgtrcgras</a></li>
+                                    <li><a class="docs-link t2" href="../Triangle Congruences/df-leag.html">df-leag</a></li>
+                                    <li><a class="docs-link t2" href="../Triangle Congruences/tgtrltad.html">tgtrltad</a></li>
+                                    <li><a class="docs-link t2 active" href="../Triangle Congruences/tgass.html">tgass</a></li>
+                                    <li><a class="docs-link t2" href="../Triangle Congruences/tgaas.html">tgaas</a></li>
+                            </ul>
+                    </li>
+            </ul>
+    </ul>
+			</aside>
+			<div class="contents">
+				<div class="header">
+						<div>
+							<label for="status">Status:</label>
+							<div class="info" name="status">ReadyForStmt</div>
+						</div>
+						<div>
+							<label for="reference">Reference:</label>
+							<div class="info" name="reference">Theorem 11.52 of [Schwabhauser] p. 109.</div>
+						</div>
+				</div>
+				<hr />
+				<p><h3>Fourth congruence theorem</h3>
+<p>Fourth congruence theorem: ASS (Angle-Side-Side): If two pairs of
+angles of two triangles are equal in measurement, and a pair of
+corresponding non-included sides are equal in length, then the
+triangles are congruent.</p>
+</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Metamath Blueprints</title>
+		<link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="static/metamath.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500&family=Bitter:wght@200;500;700&display=swap">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>	
+		<script type="text/x-mathjax-config">
+			MathJax = {
+				options: {
+					renderActions: {
+						find: [10, function (doc) {
+							for (const node of document.querySelectorAll('.math.math-inline')) {
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], false);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+							for (const node of document.querySelectorAll('.math.math-display')) {
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], true);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+						}, '']
+					}
+				}
+			}
+		</script>
+		
+	</head>
+	<body>
+		<h1><logo/>Metamath Blueprints</h1>
+		<hr />
+		<div class="container">
+			<aside class="sidebar">
+			    <a class="docs-link t1 active" href="">Metamath Blueprints</a>
+			    <ul class="toc">
+            <ul>
+                    <li>
+			                        <a class="docs-link t2" href="Triangle Congruences">Triangle Congruences</a>
+                    </li>
+            </ul>
+    </ul>
+			</aside>
+			<div class="contents">
+				<p><p>These are blueprints for Metamaths.</p>
+<p>The <code>set.mm</code> database only includes fully validated and verified theorems. However, in many cases, it is interesting to discuss the path forward, and e.g. definition choices. This has been done using commented out theorems in the database, but blueprints might be an alternative.</p>
+<p>In the Metamath community, there are both:</p>
+<ul>
+<li>people who are used to formalize proofs in <code>set.mm</code> or <code>iset.mm</code>, know the tools,</li>
+<li>people who are used to mathematics, have access to math litterature, and know the fundamentals.</li>
+</ul>
+<p>In some cases people fall in both categories, but not always.</p>
+<p>Blueprints is a way to help communication:</p>
+<ul>
+<li>explaining the path to complex theorems, and showing what's left to formalize, even for one single contributor, for the rest of the community,</li>
+<li>organizing, coordinating and e.g. splitting larger tasks between several contributors,</li>
+<li>communicating larger proofs and concepts between mathematicians and formalizers,</li>
+<li>viewing and tracking the progress made in a project,</li>
+</ul>
+<h2>How to create and use blueprints</h2>
+<p>Simply edit the files in this repository. They will be compiled and displayed in <a href="https://tirix.github.io/metamath-blueprints">https://tirix.github.io/metamath-blueprints</a>. You can contribute via commits or PRs.</p>
+<p>One directory represents a project, and each file in that directory represents a definition or a theorem. Files are in the markdown format, with a TOML front-matter,  which might contain following optional fields as in:</p>
+<pre><code>+++
+type = "Theorem"
+reference = " Theorem 11.29 of [Schwabhauser] p. 102."
+dependencies = ["isleag", "isinag"]
+statement = "|- ( ph -&gt; ( &lt;\" A B C \"&gt; ( leA ` G ) &lt;\" D E F \"&gt; &lt;-&gt; E. y e. P ( C ( inA ` G ) &lt;\" A B y \"&gt; /\\ &lt;\" A B y \"&gt; ( cgrA ` G ) &lt;\" D E F \"&gt; ) ) )"
+state = "ReadyForProof"
+hide = true
++++
+</code></pre>
+<p>The rest of the file can include e.g. an informal description of the proof or any useful hints.</p>
+</p>
+				<hr />
+			</div>
+        </div>
+	</body>
+</html>
