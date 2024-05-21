@@ -12,29 +12,29 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v4
-        - name: Cache metamath-blueprint-rs
-          id: cache-metamath-blueprint-rs
+        - name: Cache metamath-blueprints-rs
+          id: cache-metamath-blueprints-rs
           uses: actions/cache@v3
           env:
-            cache-name: cache-blueprint-rs
+            cache-name: cache-blueprints-rs
           with:
-            path: .metamath-blueprint-rs/target/release/metamath-blueprint-rs
+            path: .metamath-blueprints-rs/target/release/metamath-blueprints-rs
             key: ${{ runner.os }}-build-${{ env.cache-name }}
         - name: Install rust
-          if: ${{ !steps.cache-metamath-blueprint-rs.outputs.cache-hit }}
+          if: ${{ !steps.cache-metamath-blueprints-rs.outputs.cache-hit }}
           uses: hecrj/setup-rust-action@v1
           with:
             rust-version: stable
-        - name: Install metamath-blueprint-rs
-          if: ${{ !steps.cache-metamath-blueprint-rs.outputs.cache-hit }}
+        - name: Install metamath-blueprints-rs
+          if: ${{ !steps.cache-metamath-blueprints-rs.outputs.cache-hit }}
           run: |
-            rm -rf .metamath-blueprint-rs &&
-            git clone --depth 1 https://github.com/tirix/metamath-blueprint-rs.git .metamath-blueprint-rs &&
-            cd .metamath-blueprint-rs &&
+            rm -rf .metamath-blueprints-rs &&
+            git clone --depth 1 https://github.com/tirix/metamath-blueprints-rs.git .metamath-blueprints-rs &&
+            cd .metamath-blueprints-rs &&
             cargo build --release
         - name: Build
           run: |
-            cd .metamath-blueprint-rs &&
+            cd .metamath-blueprints-rs &&
             cargo run build ..
         - name: Deploy
           uses: JamesIves/github-pages-deploy-action@v4
