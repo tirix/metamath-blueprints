@@ -9,6 +9,10 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v4
+        - name: Get builder SHA
+          id: get-sha
+          run: |
+            echo ::set-output name=sha::$( curl -u "u:${{github.token}}" https://api.github.com/repos/tirix/metamath-blueprints-rs/git/ref/heads/master | jq .object.sha | tr -d '"' )
         - name: Cache metamath-blueprints-rs
           id: cache-metamath-blueprints-rs
           uses: actions/cache@v4
@@ -16,7 +20,7 @@ jobs:
             cache-name: cache-blueprints-rs
           with:
             path: .metamath-blueprints-rs/target/release/metamath-blueprints-rs
-            key: ${{ runner.os }}-build-${{ env.cache-name }}
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ steps.get-sha.outputs.sha }}
         - name: Install rust
           if: ${{ !steps.cache-metamath-blueprints-rs.outputs.cache-hit }}
           uses: hecrj/setup-rust-action@v2
