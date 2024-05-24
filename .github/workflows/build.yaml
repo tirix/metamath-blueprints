@@ -12,7 +12,7 @@ jobs:
         - name: Get builder SHA
           id: get-sha
           run: |
-            echo ::set-output name=sha::$( curl -u "u:${{github.token}}" https://api.github.com/repos/tirix/metamath-blueprints-rs/git/ref/heads/master | jq .object.sha | tr -d '"' )
+            echo "sha=$( curl -u "u:${{github.token}}" https://api.github.com/repos/tirix/metamath-blueprints-rs/git/ref/heads/master | jq .object.sha | tr -d '"' )" >> $GITHUB_OUTPUT
         - name: Cache metamath-blueprints-rs
           id: cache-metamath-blueprints-rs
           uses: actions/cache@v4
