@@ -32,12 +32,25 @@ jobs:
         - name: Build
           run: |
             .metamath-blueprints-rs/target/release/metamath-blueprints-rs build .
+        - name: Save build
+          uses: actions/upload-artifact@v4
+          with:
+            name: build
+            path: build
+            if-no-files-found: error
   deploy:
     needs: build
     if: github.ref == 'refs/heads/master'
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Load build
+        uses: actions/download-artifact@master
+        with:
+          name: build
+          path: build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
