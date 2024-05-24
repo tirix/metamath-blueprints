@@ -1,6 +1,6 @@
 +++
 type = "Theorem"
-reference = https://us.metamath.org/mpeuni/dvcnvre.html
+reference = "https://us.metamath.org/mpeuni/dvcnvre.html"
 state = "ReadyForStmt"
 +++
 ### The derivative rule for inverse functions

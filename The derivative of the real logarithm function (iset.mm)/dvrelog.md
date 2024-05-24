@@ -1,6 +1,6 @@
 +++
 type = "Theorem"
-reference = https://us.metamath.org/mpeuni/dvrelog.html
+reference = "https://us.metamath.org/mpeuni/dvrelog.html"
 dependencies = ["dvres3","dvcnvre"]
 state = "StmtFormalized"
 +++

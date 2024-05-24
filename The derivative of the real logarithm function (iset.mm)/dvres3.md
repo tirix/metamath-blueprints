@@ -1,6 +1,6 @@
 +++
 type = "Theorem"
-reference = https://us.metamath.org/mpeuni/dvres3.html
+reference = "https://us.metamath.org/mpeuni/dvres3.html"
 state = "StmtFormalized"
 +++
 ### Restriction of a complex differentiable function to the reals
