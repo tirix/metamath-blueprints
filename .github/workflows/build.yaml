@@ -1,12 +1,9 @@
 name: Build and Deploy
-on:
-  push:
-    branches:
-        - master
+on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: write
 jobs:
-  build-and-deploy:
+  build:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
@@ -35,7 +32,13 @@ jobs:
         - name: Build
           run: |
             .metamath-blueprints-rs/target/release/metamath-blueprints-rs build .
-        - name: Deploy
-          uses: JamesIves/github-pages-deploy-action@v4
-          with:
-            folder: build
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
