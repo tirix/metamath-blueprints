@@ -67,6 +67,6 @@ The following states are acceptable:
 
 **StmtFormalized:** The statement is formalized, this includes all hypotheses and its conclusion, yet the dependent theorems are not yet proven.
 
-**ReadyForProof:** The dependent theorems are proven, the
+**ReadyForProof:** The dependent theorems are proven and the statement is formalized. The proof step can begin now.
 
-**Formalized:** The proof and all its dependencies are proven.
+**Formalized:** The proof and all its dependencies are proven. Good job to all contributors.
