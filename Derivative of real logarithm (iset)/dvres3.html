@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>dvcnvre</title>
+		<title>dvres3</title>
 		<link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="../static/metamath.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,9 +37,9 @@
 	
 	</head>
 	<body>
-		<h1><logo/>Metamath Blueprint : Derivative of real logarithm (iset</h1>
+		<h1><logo/>Metamath Blueprint : Derivative of real logarithm (iset)</h1>
 		<hr />
-		<h2>Theorem <a href="#" class="label Theorem">dvcnvre</a></h2>
+		<h2>Theorem <a href="#" class="label Theorem">dvres3</a></h2>
 		<div class="container">
 			<aside class="sidebar">
 			    <a class="docs-link t1 active" href="..">Metamath Blueprints</a>
@@ -49,11 +49,11 @@
 			                        <a class="docs-link t2" href="../Triangle Congruences">Triangle Congruences</a>
                     </li>
                     <li>
-			                        <a class="docs-link t2 active" href="../Derivative of real logarithm (iset">Derivative of real logarithm (iset</a>
+			                        <a class="docs-link t2 active" href="../Derivative of real logarithm (iset)">Derivative of real logarithm (iset)</a>
                             <ul>
-                                    <li><a class="docs-link t2" href="../Derivative of real logarithm (iset/dvrelog.html">dvrelog</a></li>
-                                    <li><a class="docs-link t2 active" href="../Derivative of real logarithm (iset/dvcnvre.html">dvcnvre</a></li>
-                                    <li><a class="docs-link t2" href="../Derivative of real logarithm (iset/dvres3.html">dvres3</a></li>
+                                    <li><a class="docs-link t2" href="../Derivative of real logarithm (iset)/dvrelog.html">dvrelog</a></li>
+                                    <li><a class="docs-link t2" href="../Derivative of real logarithm (iset)/dvcnvre.html">dvcnvre</a></li>
+                                    <li><a class="docs-link t2 active" href="../Derivative of real logarithm (iset)/dvres3.html">dvres3</a></li>
                             </ul>
                     </li>
             </ul>
@@ -63,26 +63,21 @@
 				<div class="header">
 						<div>
 							<label for="status">Status:</label>
-							<div class="info" name="status">ReadyForStmt</div>
+							<div class="info" name="status">StmtFormalized</div>
 						</div>
 						<div>
 							<label for="reference">Reference:</label>
-							<div class="info" name="reference">https://us.metamath.org/mpeuni/dvcnvre.html</div>
+							<div class="info" name="reference">https://us.metamath.org/mpeuni/dvres3.html</div>
 						</div>
 				</div>
 				<hr />
-				<p><h3>The derivative rule for inverse functions</h3>
-<p>Many details of the proof will need intuitionizing.</p>
-<p>The statement of the theorem probably will also need some
-change (for example, I suppose the elements of <code>ran ( RR _D F )</code>
-need to be apart from zero rather than merely not equal).</p>
-<p>Perhaps the easiest way to approach this is going to be
-to intuitionize set.mm
-working forward starting from <code>dvmptsub</code> (which is the end
-of where the derivatives have apparently been intuitionized),
-seeing what can be intuitionized and what changes are needed.
-Either <code>dvcnvre</code> will fall out of this process or it will be
-more clear what its dependencies will be.</p>
+				<p><h3>Restriction of a complex differentiable function to the reals</h3>
+<p>It isn't clear whether the theorem as stated in set.mm can be proved
+and if so whether the proof will be similar to the set.mm one.
+Current guess: yes and no respectively.  The reason for being skeptical
+this will be proved the same way is the use of things
+like set difference in the statement of <a href="https://us.metamath.org/mpeuni/restntr.html">restntr</a>
+and excluded middle, e.g. df-or, in its proof.</p>
 </p>
 			</div>
 		</div>
