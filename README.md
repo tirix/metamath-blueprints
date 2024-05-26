@@ -39,7 +39,7 @@ The rest of the file can include e.g. an informal description of the proof or an
 
 **Reference**: type: string, Usually a book, a url, with page and/or theorem number.
 
-**Dependencies:** JS-Array of strings, they have to exist somewhere in the database.
+**Dependencies:** JS-Array of strings, either they exist already in the database which serves as a hint for the proof or they link to a lemma not in the database, with either statement or proof formalized or neither.
 
 **Statement:** Metamath string statement, the symbol " inside metamath has to be escaped with a backslash.
 
