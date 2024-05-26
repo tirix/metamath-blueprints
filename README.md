@@ -31,3 +31,42 @@ state = "ReadyForProof"
 +++
 ```
 The rest of the file can include e.g. an informal description of the proof or any useful hints.
+
+
+## Definition of Key-Value pairs
+
+**Type:** Theorem, Definition, Axiom
+
+**Reference**: type: string, Usually a book, a url, with page and/or theorem number.
+
+**Dependencies:** JS-Array of strings, either they exist already in the database which serves as a hint for the proof or they link to a lemma not in the database, with either statement or proof formalized or neither.
+
+**Statement:** Metamath string statement, the symbol " inside metamath has to be escaped with a backslash.
+
+**State:** See below.
+
+### Type
+TODO
+
+### Reference
+TODO
+
+### Dependencies
+TODO
+
+### Statement 
+Todo
+
+### State
+
+The following states are acceptable:
+
+**Draft:** This is to be used when the theorem is very much in its early stage and it is not clear whether the statement is of use yet or that necessary definitions are missing.
+
+**ReadyForStmt:** Once it is clear that the theorem is used in a proof we can try to formalize the statements and its hypotheses.
+
+**StmtFormalized:** The statement is formalized, this includes all hypotheses and its conclusion, yet the dependent theorems are not yet proven.
+
+**ReadyForProof:** The dependent theorems are proven and the statement is formalized. The proof step can begin now.
+
+**Formalized:** The proof and all its dependencies are proven. Good job to all contributors.
