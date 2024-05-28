@@ -4,7 +4,7 @@ state = "Draft"
 statement = """
 $e |- 
 $e |- ( ph -> N e. ( ZZ>= ` 2 ) ) $.
-$e |- ( ph -> R e. ( 1 ... ( |^ ` ( 5 log N ) ) ) ) $.
+$e |- ( ph -> R e. ( 1 ... ( |^ ` ( ( 2 log N ) ^ 5 ) ) ) ) $.
 $e |- ( ph -> A e. ( 1 ... ( |_ ` ( ( sqrt ` ( phi ` R )  ) x. ( 2 log N )  )  ) ) ) $.
 $e |- ( ph -> ( A gcd N ) = 1 ) $.
 $e |- ( ph ->  = 1 ) $.
