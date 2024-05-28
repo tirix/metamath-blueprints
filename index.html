@@ -78,26 +78,28 @@ state = "ReadyForProof"
 </code></pre>
 <p>The rest of the file can include e.g. an informal description of the proof or any useful hints.</p>
 <h2>Definition of Key-Value pairs</h2>
-<p><strong>Type:</strong> Theorem, Definition, Axiom</p>
-<p><strong>Reference</strong>: type: string, Usually a book, a url, with page and/or theorem number.</p>
-<p><strong>Dependencies:</strong> JS-Array of strings, either they exist already in the database which serves as a hint for the proof or they link to a lemma not in the database, with either statement or proof formalized or neither.</p>
-<p><strong>Statement:</strong> Metamath string statement, the symbol " inside metamath has to be escaped with a backslash.</p>
-<p><strong>State:</strong> See below.</p>
 <h3>Type</h3>
-<p>TODO</p>
+<p>A string giving the type of the statement. Possible values are:</p>
+<ul>
+<li><code>Theorem</code>,</li>
+<li><code>Definition</code>,</li>
+<li><code>Axiom</code></li>
+</ul>
 <h3>Reference</h3>
-<p>TODO</p>
+<p>An optional string giving the textbook reference for the statement. Usually a book, a url, with page and/or theorem number. This can be formatted as a <a href="https://us.metamath.org/mpeuni/mmset.html#bib">Metamath bibliographic reference</a>.</p>
 <h3>Dependencies</h3>
-<p>TODO</p>
+<p>An optional array of strings, either they exist already in the database which serves as a hint for the proof or they link to a lemma not in the database, with either statement or proof formalized or neither.</p>
 <h3>Statement</h3>
-<p>Todo</p>
+<p>An optional string containing the Metamath statement. The quote symbol (<code>"</code>) and the backslash symbol have to be escaped with a backslash (resp. <code>\"</code> and <code>\\</code>).</p>
 <h3>State</h3>
-<p>The following states are acceptable:</p>
-<p><strong>Draft:</strong> This is to be used when the theorem is very much in its early stage and it is not clear whether the statement is of use yet or that necessary definitions are missing.</p>
-<p><strong>ReadyForStmt:</strong> Once it is clear that the theorem is used in a proof we can try to formalize the statements and its hypotheses.</p>
-<p><strong>StmtFormalized:</strong> The statement is formalized, this includes all hypotheses and its conclusion, yet the dependent theorems are not yet proven.</p>
-<p><strong>ReadyForProof:</strong> The dependent theorems are proven and the statement is formalized. The proof step can begin now.</p>
-<p><strong>Formalized:</strong> The proof and all its dependencies are proven. Good job to all contributors.</p>
+<p>An optional string giving the current development state of the statement. The following state values are acceptable:</p>
+<ul>
+<li><code>Draft</code>: This is to be used when the theorem is very much in its early stage and it is not clear whether the statement is of use yet or that necessary definitions are missing.</li>
+<li><code>ReadyForStmt</code>: Once it is clear that the theorem is used in a proof we can try to formalize the statements and its hypotheses.</li>
+<li><code>StmtFormalized</code>: The statement is formalized, this includes all hypotheses and its conclusion, yet the dependent theorems are not yet proven.</li>
+<li><code>ReadyForProof</code>: The dependent theorems are proven and the statement is formalized. The proof step can begin now.</li>
+<li><code>Formalized</code>: The proof and all its dependencies are proven. Good job to all contributors.</li>
+</ul>
 </p>
 				<hr />
 			</div>
