@@ -22,5 +22,5 @@ aks.17 $e |- ( ( ph /\\ a e. ( 1 ... ( |_ ` ( ( sqrt ` ( phi ` R ) ) x. ( 2 logb
 aks.18 $e |- ( ( ph /\\ a e. ( 1 ... ( |_ ` ( ( sqrt ` ( phi ` R ) ) x. ( 2 logb N ) ) ) ) ) -> ( N .^ ( M .+ A ) ) = ( ( N .^ M ) .+ A ) ) $.
 aks $p |- ( ph -> E. m e. NN ( P ^ m ) = N ) $= ? $. // AKS Result, if 1-18 hold, then N is a power of P.
 """
-dependencies = []
+dependencies = ["aks61c2","aks61c7"]
 +++

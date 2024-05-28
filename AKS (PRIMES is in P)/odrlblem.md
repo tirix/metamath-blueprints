@@ -6,7 +6,7 @@ $e |- G = ( Z/nZ ` r ) $.
 $e |- B = ( |^ ` ( ( 2 logb N ) ^ 5 ) ) $.
 $p |- ( N e. ( ZZ>= ` 3 ) -> E. r e. ( 1 ... B ) ( ( r gcd N ) = 1 /\\ ( 2 logb N ) < ( od ` G ) ) ) $.
 """
-dependencies = ["lcmineqlem"]
+dependencies = ["lcmineqlem", "3lexlogpow5ineq3"]
 +++
 ### Making $n$ have high order modulo $r$.
 

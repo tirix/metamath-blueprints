@@ -7,6 +7,6 @@ $e |- ( ph -> R e. ( 1 ... ( |^ ` ( ( 2 log N ) ^ 5 ) ) ) ) $.
 $e |- ( ph -> A e. ( 1 ... ( |_ ` ( ( sqrt ` ( phi ` R )  ) x. ( 2 log N )  )  ) ) ) $.
 $p |- ( ph -> A < N ) $.
 """
-dependencies = ["phibnd"]
+dependencies = ["phibnd","aks10kbnd"]
 +++
 Eliminate lower values of $n$: the hypotheses of Theorem 2.2 only need to be checked for fairly large $n$.
