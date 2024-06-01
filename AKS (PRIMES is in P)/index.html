@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AKS (PRIMES is in P)</title>
+		<link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="../static/metamath.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500&family=Bitter:wght@200;500;700&display=swap">
+		<script>
+			MathJax = {
+				options: {
+					renderActions: {
+						find: [10, function (doc) {
+							for (const node of document.querySelectorAll('.math.math-inline')) {
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], false);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+							for (const node of document.querySelectorAll('.math.math-display')) {
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], true);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+						}, '']
+					}
+				}
+			}
+		</script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>	
+		
+	</head>
+	<body>
+		<h1><logo/>Metamath Blueprint : AKS (PRIMES is in P)</h1>
+		<hr />
+		<div class="container">
+			<aside class="sidebar">
+			    <a class="docs-link t1 active" href="..">Metamath Blueprints</a>
+			    <ul class="toc">
+            <ul>
+                    <li>
+			                        <a class="docs-link t2" href="../Triangle Congruences">Triangle Congruences</a>
+                    </li>
+                    <li>
+			                        <a class="docs-link t2 active" href="../AKS (PRIMES is in P)">AKS (PRIMES is in P)</a>
+                            <ul>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c1.html">aks61c1</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aksthr.html">aksthr</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c5.html">aks61c5</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/cl3.html">cl3</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/taylconcavebnd.html">taylconcavebnd</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/lcmineqlem.html">lcmineqlem</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c6.html">aks61c6</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/odrlblem.html">odrlblem</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c4.html">aks61c4</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aksth.html">aksth</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/rhmextex.html">rhmextex</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c2.html">aks61c2</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks22.html">aks22</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c3.html">aks61c3</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61.html">aks61</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c7.html">aks61c7</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/akslb.html">akslb</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks10kbnd.html">aks10kbnd</a></li>
+                            </ul>
+                    </li>
+                    <li>
+			                        <a class="docs-link t2" href="../Derivative of real logarithm (iset)">Derivative of real logarithm (iset)</a>
+                    </li>
+            </ul>
+    </ul>
+			</aside>
+			<div class="contents">
+				<p><h2>PRIMES IS IN P</h2>
+<p>The <strong>AKS primality test</strong> (also known as <em>Agrawal–Kayal–Saxena primality test</em> and <em>cyclotomic AKS test</em>) is a deterministic primality-proving algorithm created and published by Manindra Agrawal, Neeraj Kayal, and Nitin Saxena, computer scientists at the Indian Institute of Technology Kanpur, on August 6, 2002, in an article titled <a href="http://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf">PRIMES is in P</a>.</p>
+<p>The AKS primality test is based upon the following theorem:</p>
+<p>Given an integer <span class="math math-inline">n \geq 2</span> and integer <span class="math math-inline">a</span> coprime to <span class="math math-inline">n</span>, <span class="math math-inline">n</span> is prime if and only if the polynomial congruence relation</p>
+<p><span class="math math-display">(X+a)^{n}\equiv X^{n}+a{\pmod {n}}</span></p>
+<p>holds within the polynomial ring <span class="math math-inline">(\mathbb{Z}/n\mathbb{Z})[X]</span>.</p>
+</p>
+				<hr />
+				<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg viewBox="0 0 1941.875 807.5" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="startarrow" markerWidth="10" markerHeight="7"
+refX="0" refY="3.5" orient="auto">
+<polygon points="10 0, 10 7, 0 3.5" />
+</marker>
+<marker id="endarrow" markerWidth="10" markerHeight="7"
+refX="10" refY="3.5" orient="auto">
+<polygon points="0 0, 10 3.5, 0 7" />
+</marker>
+
+</defs><style>
+.a15 { font-size: 15px; font-family: Times, serif; }
+</style>
+<a href="aks61c1.html">
+  <rect x="1801.875" y="450" width="135" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1869.375" y="457.5" class="a15"><tspan x = "1869.375" dy="1.0em">aks61c1</tspan></text><a href="aksthr.html">
+  <rect x="135" y="135" width="120" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="195" y="142.5" class="a15"><tspan x = "195" dy="1.0em">aksthr</tspan></text><a href="aks61c5.html">
+  <rect x="997.5" y="555" width="135" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1065" y="562.5" class="a15"><tspan x = "1065" dy="1.0em">aks61c5</tspan></text><a href="cl3.html">
+  <rect x="1627.5" y="555" width="75" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1665" y="562.5" class="a15"><tspan x = "1665" dy="1.0em">cl3</tspan></text><a href="taylconcavebnd.html">
+  <rect x="382.5" y="345" width="240" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="502.5" y="352.5" class="a15"><tspan x = "502.5" dy="1.0em">taylconcavebnd</tspan></text><a href="lcmineqlem.html">
+  <rect x="1162.5" y="345" width="180" height="45" fill="#9cec8bff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1252.5" y="352.5" class="a15"><tspan x = "1252.5" dy="1.0em">lcmineqlem</tspan></text><a href="aks61c6.html">
+  <rect x="997.5" y="450" width="135" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1065" y="457.5" class="a15"><tspan x = "1065" dy="1.0em">aks61c6</tspan></text><a href="odrlblem.html">
+  <rect x="1035" y="240" width="150" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#0000ffff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1110" y="247.5" class="a15"><tspan x = "1110" dy="1.0em">odrlblem</tspan></text><a href="aks61c4.html">
+  <rect x="1192.5" y="450" width="135" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1260" y="457.5" class="a15"><tspan x = "1260" dy="1.0em">aks61c4</tspan></text><a href="aksth.html">
+  <rect x="757.5" y="30" width="105" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="810" y="37.5" class="a15"><tspan x = "810" dy="1.0em">aksth</tspan></text><a href="rhmextex.html">
+  <rect x="825" y="240" width="150" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="900" y="247.5" class="a15"><tspan x = "900" dy="1.0em">rhmextex</tspan></text><a href="aks61c2.html">
+  <rect x="1801.875" y="345" width="135" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1869.375" y="352.5" class="a15"><tspan x = "1869.375" dy="1.0em">aks61c2</tspan></text><a href="aks22.html">
+  <rect x="1158.75" y="135" width="105" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1211.25" y="142.5" class="a15"><tspan x = "1211.25" dy="1.0em">aks22</tspan></text><a href="aks61c3.html">
+  <rect x="1597.5" y="450" width="135" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1665" y="457.5" class="a15"><tspan x = "1665" dy="1.0em">aks61c3</tspan></text><a href="aks61.html">
+  <rect x="1515" y="240" width="105" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1567.5" y="247.5" class="a15"><tspan x = "1567.5" dy="1.0em">aks61</tspan></text><a href="aks61c7.html">
+  <rect x="1402.5" y="345" width="135" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1470" y="352.5" class="a15"><tspan x = "1470" dy="1.0em">aks61c7</tspan></text><a href="akslb.html">
+  <rect x="551.25" y="135" width="105" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="603.75" y="142.5" class="a15"><tspan x = "603.75" dy="1.0em">akslb</tspan></text><a href="aks10kbnd.html">
+  <rect x="420" y="240" width="165" height="45" fill="#ffffffff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="502.5" y="247.5" class="a15"><tspan x = "502.5" dy="1.0em">aks10kbnd</tspan></text><a href="prmfac1.html">
+  <rect x="225" y="240" width="135" height="45" fill="#9cec8bff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="292.5" y="247.5" class="a15"><tspan x = "292.5" dy="1.0em">prmfac1</tspan></text><a href="dvdsfac.html">
+  <rect x="30" y="240" width="135" height="45" fill="#9cec8bff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="97.5" y="247.5" class="a15"><tspan x = "97.5" dy="1.0em">dvdsfac</tspan></text><a href="znzrhfo.html">
+  <rect x="1713.75" y="660" width="135" height="45" fill="#9cec8bff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1781.25" y="667.5" class="a15"><tspan x = "1781.25" dy="1.0em">znzrhfo</tspan></text><a href="cl3contnpows.html">
+  <rect x="1194.375" y="660" width="210" height="45" fill="#9cec8bff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="1299.375" y="667.5" class="a15"><tspan x = "1299.375" dy="1.0em">cl3contnpows</tspan></text><a href="3lexlogpow5ineq3.html">
+  <rect x="830.625" y="345" width="270" height="45" fill="#9cec8bff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="965.625" y="352.5" class="a15"><tspan x = "965.625" dy="1.0em">3lexlogpow5ineq3</tspan></text><a href="phibnd.html">
+  <rect x="645" y="240" width="120" height="45" fill="#9cec8bff" 
+            stroke-width="1" stroke="#000000ff" rx="0"  />
+</a>
+<text dominant-baseline="middle" text-anchor="middle" 
+            x="705" y="247.5" class="a15"><tspan x = "705" dy="1.0em">phibnd</tspan></text><path id="arrow0" d="M 239.46428571428572 180 C 255.6870134536907 205.2353542612966, 261.81298654630933 214.7646457387034, 278.0357142857143 240 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow0" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow1" d="M 150.53571428571428 180 C 134.3129865463093 205.2353542612966, 128.18701345369067 214.7646457387034, 111.96428571428571 240 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow1" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow2" d="M 1702.5 597.6923076923077 C 1722.9135329810183 619.6761124410967, 1721.4997502828153 633.4995293791521, 1735.561224489796 660 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow2" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow3" d="M 1627.5 583.1756756756756 C 1598.786658440505 591.8672817693606, 1432.5983795856043 653.4104938430255, 1404.375 663.581081081081 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow3" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow4" d="M 1065 495 C 1065 525, 1065 525, 1065 555 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow4" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow5" d="M 1170 285 C 1191.2132034355964 306.2132034355964, 1208.7867965644036 323.7867965644036, 1230 345 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow5" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow6" d="M 1049.5982142857142 285 C 1028.198121340271 306.02465271833023, 1009.9268786597289 323.97534728166977, 988.5267857142857 345 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow6" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow7" d="M 757.5 57.181528662420384 C 727.9660108159527 62.44873692454347, 284.48139406759594 146.29421121898704, 255 151.84825513591102 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow7" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow8" d="M 862.5 59.85 C 891.3889205914254 67.93889776559912, 1130.0373591372156 140.85782362712902, 1158.75 149.5517441860465 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow8" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow9" d="M 757.5 67.8125 C 731.586632973047 82.92863076572259, 680.7873371355813 121.77459373060827, 656.25 139.03492647058823 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow9" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow10" d="M 1869.375 390 C 1869.375 420, 1869.375 420, 1869.375 450 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow10" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow11" d="M 1168.9285714285713 180 C 1151.4914256169984 204.41200413620206, 1143.5085743830014 215.58799586379797, 1126.0714285714284 240 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow11" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow12" d="M 1158.75 167.17105263157896 C 1130.5997064954868 177.54221339639966, 1002.5514166755853 234.47160191408773, 975 246.34255129348796 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow12" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow13" d="M 1263.75 165.85227272727272 C 1292.337773400398 174.94838244558113, 1486.669089501316 243.49055512730104, 1515 253.35764742014743 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow13" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow14" d="M 1665 495 C 1665 525, 1665 525, 1665 555 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow14" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow15" d="M 1620 272.5 C 1648.034632047869 283.1798598277596, 1774.4214190981431 340.5349440664283, 1801.875 352.6304347826087 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow15" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow16" d="M 1525.982142857143 285 C 1509.1371003070249 309.8242732317527, 1502.1128996929751 320.1757267682473, 1485.267857142857 345 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow16" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow17" d="M 1537.5 389.4767441860465 C 1562.6399425412246 405.8469393291695, 1583.3838354637844 430.11061522002126, 1605.8429621848738 450 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow17" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow18" d="M 1402.5 387.6063829787234 C 1376.7269536827373 402.96053823156075, 1346.2206697757167 431.53977062262476, 1322.5728383458647 450 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow18" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow19" d="M 1402.5 377.04545454545456 C 1373.6323774523414 385.21003465994386, 1161.1200740017196 452.8999767446897, 1132.5 461.8939393939394 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow19" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow20" d="M 646.0714285714286 180 C 663.5085743830015 204.41200413620206, 671.4914256169985 215.58799586379797, 688.9285714285714 240 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow20" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow21" d="M 561.4285714285714 180 C 543.9914256169985 204.41200413620206, 536.0085743830015 215.58799586379797, 518.5714285714286 240 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow21" startOffset="50%" text-anchor="middle" class="a15"></textPath></text><path id="arrow22" d="M 502.5 285 C 502.5 315, 502.5 315, 502.5 345 " stroke="#000000ff" stroke-width="1"   marker-end="url(#endarrow)" 
+            fill="transparent" />
+<text><textPath href="#arrow22" startOffset="50%" text-anchor="middle" class="a15"></textPath></text></svg>
+			</div>
+	</body>
+</html>

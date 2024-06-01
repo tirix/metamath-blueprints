@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>cl3</title>
+		<link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="../static/metamath.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;500&family=Bitter:wght@200;500;700&display=swap">
+		<script>
+			MathJax = {
+				options: {
+					renderActions: {
+						find: [10, function (doc) {
+							for (const node of document.querySelectorAll('.math.math-inline')) {
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], false);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+							for (const node of document.querySelectorAll('.math.math-display')) {
+								const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], true);
+								math.start = {node: node, delim: '', n: 0};
+								math.end = {node: node, delim: '', n: 0};
+								doc.math.push(math);
+							}
+						}, '']
+					}
+				}
+			}
+		</script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>	
+		
+	</head>
+	<body>
+		<h1><logo/>Metamath Blueprint : AKS (PRIMES is in P)</h1>
+		<hr />
+		<h2>Theorem <a href="#" class="label Theorem">cl3</a></h2>
+		<div class="container">
+			<aside class="sidebar">
+			    <a class="docs-link t1 active" href="..">Metamath Blueprints</a>
+			    <ul class="toc">
+            <ul>
+                    <li>
+			                        <a class="docs-link t2" href="../Triangle Congruences">Triangle Congruences</a>
+                    </li>
+                    <li>
+			                        <a class="docs-link t2 active" href="../AKS (PRIMES is in P)">AKS (PRIMES is in P)</a>
+                            <ul>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c1.html">aks61c1</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aksthr.html">aksthr</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c5.html">aks61c5</a></li>
+                                    <li><a class="docs-link t2 active" href="../AKS (PRIMES is in P)/cl3.html">cl3</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/taylconcavebnd.html">taylconcavebnd</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/lcmineqlem.html">lcmineqlem</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c6.html">aks61c6</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/odrlblem.html">odrlblem</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c4.html">aks61c4</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aksth.html">aksth</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/rhmextex.html">rhmextex</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c2.html">aks61c2</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks22.html">aks22</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c3.html">aks61c3</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61.html">aks61</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks61c7.html">aks61c7</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/akslb.html">akslb</a></li>
+                                    <li><a class="docs-link t2" href="../AKS (PRIMES is in P)/aks10kbnd.html">aks10kbnd</a></li>
+                            </ul>
+                    </li>
+                    <li>
+			                        <a class="docs-link t2" href="../Derivative of real logarithm (iset)">Derivative of real logarithm (iset)</a>
+                    </li>
+            </ul>
+    </ul>
+			</aside>
+			<div class="contents">
+				<div class="header">
+						<div>
+							<label for="status">Status:</label>
+							<div class="info" name="status">Draft</div>
+						</div>
+						<div>
+							<label for="statement">Statement:</label>
+							<pre class="info step" name="statement">cl3a.1 $e |- G = ( Z/nZ ` R ) $.
+cl3a.2 $e |- O = ( od ` G ) $.
+cl3a.3 $e |- F = ( GF_oo ` P ) $. // F is the algebraic closure of F_p
+cl3a.4 $e |- A = ( ( ZRHom ` P ) ` a ) $. // ` A ` is the image of a by the canonical homomorphism from the integers to the ring ` F `
+cl3a.5 $e |- .^ = ( .g ` ( mulGrp ` F ) ) $.
+cl3a.6 $e |- .1. = ( 1r ` F ) $.
+cl3a.7 $e |- +. = ( +g ` F ) $.
+cl3a.8 $e |- .0. = ( 0g ` F ) $.
+cl3a.9 $e |- ( ph -> N e. ( ZZ>= ` 2 ) ) $.
+cl3a.10 $e |- ( ph -> P e. Prime ) $.
+cl3a.11 $e |- ( ph -> P || N ) $.
+cl3a.12 $e |- ( ph -> R e. ( ZZ>= ` 2 ) ) $.
+cl3a.13 $e |- ( ph -> ( N gcd R ) = 1 ) $.
+cl3a.14 $e |- ( ph -> ( ( 2 logb N ) ^ 2 ) < ( O ` N ) ) $.
+cl3a.15 $e |- ( E = ran ( k e. NN0 , j e. NN0 |-> ( ( ( N / P ) ^ k ) x. ( P ^ j ) ) ) )  $.
+cl3a.16 $e |- ( M = ( ZRHom ` G ) ) $. //I think we need to define a map as in preparation for claim 3.
+cl3a $e |- ( ph ->  ( M " E ) = ( Base ` G ) )
+</pre>
+						</div>
+						<div>
+							<label for="reference">Reference:</label>
+							<div class="info" name="reference">Part for Claim 3 from ~ https://www3.nd.edu/%7eandyp/notes/AKS.pdf</div>
+						</div>
+				</div>
+				<hr />
+				<p><p>This is a necessary step for claim 3, essentially we want to show that
+the restriction of the homomorphism of E -&gt; Z/rZ is surjective.
+This allows us to reason that the image contains r elements.
+Assume it is not true, then there is an element in Z/rZ that is not hit by the homomorphism,
+but this is a contradiction by our result. Thus we can replace ord_r(n) with barE
+but by cl3a.14 claim 3 follows.</p>
+<p>We also need to show that all powers of n are in E, but this should be trivial.
+This should be proven in cl3contnpows.</p>
+</p>
+			</div>
+		</div>
+	</body>
+</html>
