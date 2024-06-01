@@ -16,7 +16,7 @@ cl3a.11 $e |- ( ph -> P || N ) $.
 cl3a.12 $e |- ( ph -> R e. ( ZZ>= ` 2 ) ) $.
 cl3a.13 $e |- ( ph -> ( N gcd R ) = 1 ) $.
 cl3a.14 $e |- ( ph -> ( ( 2 logb N ) ^ 2 ) < ( O ` N ) ) $.
-cl3a.15 $e |- ( E = { x e. ZZ | ( K e. NN0 /\ J e. NN0 /\
+cl3a.15 $e |- ( E = { x e. ZZ | ( K e. NN0 /\\ J e. NN0 /\\
 ( ( ( N / P ) ^ K ) x. ( P ^ J ) ) ) } ) $.
 cl3a.16 $e |- ( M = ( ZRHom ` G ) ) $. //I think we need to define a map as in preparation for claim 3.
 cl3a $e |- ( ph ->  ( M " E ) = ( Base ` G ) )
