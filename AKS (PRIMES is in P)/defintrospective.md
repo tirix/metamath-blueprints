@@ -8,7 +8,8 @@ where f(X)^e is e-th iterate of p and
 f(X^e) is the polynomial introduced by replacing the monomials X^0, X^1 ,... by X^e*0, X^e*1,...
 Calculate l(f(X)^e-f(X^e)) and see if it divides (X^r)-1
 "
-df-intro $a |- INTRO = INTRO $.
+df-intro $a |- INTRO = ( p e. NN , r e. NN |-> 
+  { <. e , f >. | [. ( Poly1 ` ZZring ) / z ]. ( e e. NN0 /\ f e. ( Base ` z ) /\ ( ... ) ( ||r ` z ) ( ( r ( .g ` ( mulGrp ` z ) ) ( var1 ` ZZring ) ) ( -g ` z ) ( ( algSc ` z ) ` 1 ) ) ) } ) $.
 
 """
 +++
