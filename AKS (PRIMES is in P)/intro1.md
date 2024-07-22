@@ -1,6 +1,6 @@
 +++
 state = "Draft"
-statement = "Closure statement of introspective relation"
+statement = """
 $e |- ( ph -> P e. NN ) $.
 $e |- ( ph -> R e. NN ) $.
 $e |- I = ( P INTRO R ) $.
@@ -14,4 +14,4 @@ $p |- ( ph -> E I ( F x. G ) ) $. // TODO Replace x. with polynomial multiplicat
 """
 dependencies = ["defintrospective"]
 +++
-
+Closure statement of introspective relation
