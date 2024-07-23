@@ -3,7 +3,7 @@ state = "Draft"
 statement = """
 df-intro $a |- introAKS = ( p e. NN , r e. NN |-> 
   { <. e , f >. | [. ( Poly1 ` ( Z/nZ ` p ) ) / z ]. ( e e. NN0 /\\ f e. ( Base ` ( Poly1 ` ZZring ) )
-    /\\ ( z gsum ( n e. NN0 |-> ( ( ( coe1 ` f ) ` n ) .* ( n .^ M ) ) ) )
+    /\\ ( z gsum ( n e. NN0 |-> ( ( ( coe1 ` f ) ` n ) .* ( n .^ e ) ) ) )
         ( ||r ` z ) 
         ( ( r ( .g ` ( mulGrp ` z ) ) ( var1 ` ZZring ) ) ( -g ` z ) ( ( algSc ` z ) ` 1 ) ) ) )
     ) } ) $.
