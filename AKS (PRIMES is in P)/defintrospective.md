@@ -1,11 +1,11 @@
 +++
 state = "Draft"
 statement = """
-df-intro $a |- INTRO = ( p e. NN , r e. NN |-> 
-  { <. e , f >. | [. ( Poly1 ` ZZring ) / z ]. ( e e. NN0 /\\ f e. ( Base ` z )
-    /\\ ( ... ) 
+df-intro $a |- introAKS = ( p e. NN , r e. NN |-> 
+  { <. e , f >. | [. ( Poly1 ` ( Z/nZ ` p ) ) / z ]. ( e e. NN0 /\\ f e. ( Base ` ( Poly1 ` ZZring ) )
+    /\\ ( z gsum ( n e. NN0 |-> ( ( ( coe1 ` f ) ` n ) .* ( n .^ M ) ) ) )
         ( ||r ` z ) 
-        ( ( r ( .g ` ( mulGrp ` z ) ) ( var1 ` ZZring ) ) ( -g ` z ) ( ( algSc ` z ) ` 1 ) )
+        ( ( r ( .g ` ( mulGrp ` z ) ) ( var1 ` ZZring ) ) ( -g ` z ) ( ( algSc ` z ) ` 1 ) ) ) )
     ) } ) $.
 """
 +++
