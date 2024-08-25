@@ -8,7 +8,7 @@ $e |- B = ( Base ` X ) $.
 $e |- ( ph -> R e. PrimRoot ) $.
 $e |- ( ph -> CurlyPbar = { y e. B | E. f e. CurlyP y = ( f ` R ) } ) $.
 $e |- ( ph -> T = ( ( X ^ M ) - ( X ^ N ) ) ) $.
-$e |- ( ( ph /\ x e. CurlyPbar ) -> ( T ` x ) = 0 ) $.
+$e |- ( ( ph /\\ x e. CurlyPbar ) -> ( T ` x ) = 0 ) $.
 $p |- ( ph -> ( # ` CurlyPBar ) <_ ( ( deg1 ` R ) ` T ) ) $.
 """
 dependencies = ["fta1g"]
